@@ -7,6 +7,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SingleActionController;
 use App\Models\Customer;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\FileUploadController;
 use Illuminate\Http\Request;
 
 /*
@@ -133,3 +134,6 @@ Route::get('/destroy-session',function(Request $request){
     //session()->forget('user_id');
     return redirect('get-all-session');
 });
+
+Route::get('/upload',[FileUploadController::class,'index']);
+Route::post('/upload',[FileUploadController::class,'upload']);
